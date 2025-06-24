@@ -12,7 +12,7 @@
 :revealjs_pdfseparatefragments: false
 
 = Breuninger AI
-Sascha Schmidt - E. Breuninger GmbH & Co
+Sascha Schmidt - E. Breuninger GmbH & Co.
 
 [.notes]
 --
