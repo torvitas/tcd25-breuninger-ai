@@ -131,3 +131,18 @@ Aussicht
 == Questions?
 
 image::images/questions.png[Embedded,720]
+
+[.columns]
+== Links
+
+[.column]
+--
+image::images/qr-slides.svg[Embedded,360]
+https://torvitas.github.io/tcd25-breuninger-ai/
+--
+
+[.column]
+--
+image::images/qr-breuninger-ai.svg[Embedded,360]
+https://gitlab.breuni.de/itops/oct/breuninger-ai/
+--
