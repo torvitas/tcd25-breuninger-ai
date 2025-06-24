@@ -1,0 +1,133 @@
+:revealjs_theme: white
+:customcss: custom.css
+:revealjs_history: true
+:icons: font
+// 20 minutes
+:revealjs_totalTime: 1200
+:source-highlighter: rogue
+:revealjs_transition: slide
+
+:revealjs_width: 1280
+:revealjs_html: true
+:revealjs_pdfseparatefragments: false
+
+= Breuninger AI
+Sascha Schmidt - E. Breuninger GmbH & Co
+
+[.notes]
+--
+* Willkommen im Deep-Dive zur Breuninger AI
+* Woher kommen wir, wo sind wir, wo wollen wir hin und wie machen wir das eigentlich?
+* Ich bin .. / Bei Operations Core Tooling
+* Bekannteste Services sind Breuninger ID, Breuninger AI, Gitlab, Confluence etc.
+* Bei Fragen gerne wärend des Vortrags melden
+--
+
+== Timeline
+
+--
+image::images/timeline.svg[Embedded,1280,opts=inline]
+--
+
+[.notes]
+--
+* Wir brauchen einen Chatbot
+  * Es soll aber nichts kosten
+  * SaaS-Lösungen werden alle per Seat bezahlt
+Timeline
+- April 2024
+  - wir brauchen dringend einen Chatbot
+  - erster PoC geht innerhalb von ~1 Woche online
+  - GPT3.5
+- June 2024
+  - wir brauchen dringend einen vernünftigen Chatbot
+- July 2024
+  - RAG - was könnten wir alles Anbinden?
+  - HR Portal wurde angebunden
+  - Breuninger AI wie wir sie heute kennen geht online
+- August 2025
+  - Referenzen auf Quelle von Antworten (RAG)
+  - GPT4o
+- October 2024
+  - Confluence wurde angebunden
+  - Google
+- December 2024
+  - Dall-E
+- April 2025
+  - Grafana Usage Dashboard
+  - o3-mini
+  - OpenAI tts
+  - Whisper
+  - Agents / MCP support
+- May 2025
+  - Evaluate OpenWebUi
+--
+
+== Components
+
+image::images/components.png[Embedded,720]
+
+[.notes]
+--
+Blick hinter die Kulissen
+--
+
+=== Librechat
+--
+image::images/librechat.svg[Embedded,1280,opts=inline]
+--
+
+[.notes]
+--
+- Component Diagram
+  - Librechat
+    - Mongodb
+      - User, Konversationen, Prompts, etc.
+    - Meilisearch
+      - Durchsuchbare Konversationen
+    - PGVector
+      - Lokales RAG (wenn Dokumente hochgeladen werden oder für Agenten)
+  - Breuninger AI Docs
+    - MKDocs
+--
+
+=== Azure
+--
+image::images/azure.svg[Embedded,1280,opts=inline]
+--
+
+[.notes]
+--
+- Component Diagram
+  - Azure
+    - LLMs (GPT4o, o3-mini, Dall-E)
+    - Blob Storage - Ingest
+    - Azure AI Search
+    - ML Pipelines
+      - Blob Storage - Cache
+      - Crack - f.e. PDF -> Text
+      - Chunk - Text -> Text Chunks
+      - Embed - Chunk -> Embedding LLM -> Vektoren
+      - Index - Vektoren -> AI Search Index
+      - Register - Index -> AI Search
+--
+
+== What's next?
+image::images/next-librechat.svg[Embedded,720,opts=inline]
+
+[.notes]
+--
+Aussicht
+- Librechat
+  - GPT-4.1, o4-mini, o3
+  - New UI
+  - Agent Chains
+  - Mistral OCR
+  - OpenAI Image Tools
+  - Memory - In einer der nächsten Versionen
+  - User Verwaltung (Gruppen und so) - später dieses Jahr
+--
+
+== Questions?
+
+image::images/questions.png[Embedded,720]

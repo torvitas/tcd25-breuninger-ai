@@ -1,0 +1,68 @@
+:root {
+    --r-link-color: #a81326;
+    --r-link-color-dark: #8d0e1f;
+    --r-link-color-hover: #8d0e1f;
+}
+
+body.reveal-viewport {
+    background-image: url("images/breuninger-sign.svg");
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-position: 25px 25px;
+}
+
+.author {
+    color: #666;
+    font-size: smaller;
+}
+
+.preamble {
+    color: #8d0e1f;
+}
+
+.slides {
+    width: 1200px !important;
+}
+.reveal section img {
+    border:0;
+    box-shadow: none;
+}
+
+section.inverted {
+    background: #a81326;
+    color: #fff
+}
+
+.timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.event {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  background: #4e73df;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.arrow {
+  font-size: 2rem;
+  opacity: 0.5;
+  transform: translateY(-10px);
+}
