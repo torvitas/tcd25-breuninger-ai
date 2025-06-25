@@ -1,3 +1,5 @@
+= Breuninger AI
+Sascha Schmidt - E. Breuninger GmbH & Co.
 :revealjs_theme: white
 :customcss: custom.css
 :revealjs_history: true
@@ -11,16 +13,14 @@
 :revealjs_html: true
 :revealjs_pdfseparatefragments: false
 
-= Breuninger AI
-Sascha Schmidt - E. Breuninger GmbH & Co.
 
 [.notes]
 --
 * Willkommen im Deep-Dive zur Breuninger AI
 * Woher kommen wir, wo sind wir, wo wollen wir hin und wie machen wir das eigentlich?
 * Ich bin .. / Bei Operations Core Tooling
-* Bekannteste Services sind Breuninger ID, Breuninger AI, Gitlab, Confluence etc.
-* Bei Fragen gerne wärend des Vortrags melden
+* Bekannteste Services sind neben der Breuninger AI, die Breuninger ID, Gitlab, Confluence etc.
+* Bei Fragen gerne wärend des Vortrags melden, am Ende haben wir aber auch noch Zeit tiefer auf Themen einzugehen
 --
 
 == Timeline
@@ -31,36 +31,14 @@ image::images/timeline.svg[Embedded,1280,opts=inline]
 
 [.notes]
 --
-* Wir brauchen einen Chatbot
-  * Es soll aber nichts kosten
-  * SaaS-Lösungen werden alle per Seat bezahlt
-Timeline
-- April 2024
-  - wir brauchen dringend einen Chatbot
-  - erster PoC geht innerhalb von ~1 Woche online
-  - GPT3.5
-- June 2024
-  - wir brauchen dringend einen vernünftigen Chatbot
-- July 2024
-  - RAG - was könnten wir alles Anbinden?
-  - HR Portal wurde angebunden
-  - Breuninger AI wie wir sie heute kennen geht online
-- August 2025
-  - Referenzen auf Quelle von Antworten (RAG)
-  - GPT4o
-- October 2024
-  - Confluence wurde angebunden
-  - Google
-- December 2024
-  - Dall-E
-- April 2025
-  - Grafana Usage Dashboard
-  - o3-mini
-  - OpenAI tts
-  - Whisper
-  - Agents / MCP support
-- May 2025
-  - Evaluate OpenWebUi
+* April 2024 - AI Hype, SaaS-Lösungen per Seat, PoC, GPT3.5
+* Juni 2024 - So können wir es nicht lassen, arbeit an Breuninger AI beginnt
+* Juli 2024 - Breuninger AI, Librechat, HR-Portal - Custom Integration, Was kann angebunden werden?
+* August 2024 - Referenzen, GPT4o
+* Oktober 2024 - Confluence, Google
+* Dezember 2024 - Dall-E, Confluence Anhänge
+* April 2025 - Dashboard, o3-mini, OpenAI tts, Whisper (vorher nur Browser), MCP Model Context Protocol
+* May 2025 - Evaluate OpenWebUi - Lizenz / Rocketchat
 --
 
 == Components
@@ -69,7 +47,7 @@ image::images/components.png[Embedded,720]
 
 [.notes]
 --
-Blick hinter die Kulissen
+Blick hinter die Kulissen der Breuninger AI
 --
 
 === Librechat
@@ -79,16 +57,12 @@ image::images/librechat.svg[Embedded,1280,opts=inline]
 
 [.notes]
 --
-- Component Diagram
-  - Librechat
-    - Mongodb
-      - User, Konversationen, Prompts, etc.
-    - Meilisearch
-      - Durchsuchbare Konversationen
-    - PGVector
-      - Lokales RAG (wenn Dokumente hochgeladen werden oder für Agenten)
-  - Breuninger AI Docs
-    - MKDocs
+* Librechat - Kubernetes
+** Mongodb - User, Konversationen, Prompts, etc.
+** Meilisearch - Durchsuchbare Konversationen
+** PGVector - Lokales RAG (wenn Dokumente hochgeladen werden oder für Agenten)
+* Breuninger AI Docs - MKDocs in Pipeline, Nginx Container -> Kubernetes
+* Ingest Pipeline - Go Binary, Gitlab Scheduled Pipeline, Change Detection
 --
 
 === Azure
@@ -98,18 +72,17 @@ image::images/azure.svg[Embedded,1280,opts=inline]
 
 [.notes]
 --
-- Component Diagram
-  - Azure
-    - LLMs (GPT4o, o3-mini, Dall-E)
-    - Blob Storage - Ingest
-    - Azure AI Search
-    - ML Pipelines
-      - Blob Storage - Cache
-      - Crack - f.e. PDF -> Text
-      - Chunk - Text -> Text Chunks
-      - Embed - Chunk -> Embedding LLM -> Vektoren
-      - Index - Vektoren -> AI Search Index
-      - Register - Index -> AI Search
+* Azure
+** Blob Storage - Ingest
+** ML Pipelines
+*** Blob Storage - Cache
+*** Crack - f.e. PDF -> Text
+*** Chunk - Text -> Text Chunks -> dass z.b. nicht ein 200 Seitiges Dokument an das LLM übergeben werden muss
+*** Embed -> Embedding LLM -> Vektoren
+*** Index - Vektoren -> AI Search Index
+*** Register - Index -> AI Search
+** Azure AI Search
+** LLMs (GPT4o, o3-mini, Dall-E)
 --
 
 == What's next?
@@ -117,20 +90,44 @@ image::images/next-librechat.svg[Embedded,720,opts=inline]
 
 [.notes]
 --
-Aussicht
-- Librechat
-  - GPT-4.1, o4-mini, o3
-  - New UI
-  - Agent Chains
-  - Mistral OCR
-  - OpenAI Image Tools
-  - Memory - In einer der nächsten Versionen
-  - User Verwaltung (Gruppen und so) - später dieses Jahr
+* Neue Models: GPT-4.1, o4-mini, o3
+* OpenAI Image Tools - Dall-E, nur ohne legastenie
+* Neue UI: Auswahl der Agenten wird übersichtlicher
+* Agent Chains - mehrere Agents zu einem zusammen bauen, das ist auch Instanzweit Teilbar, allerdings nur für Admins, wenn ihr etwas teilen wollt meldet euch einfach gerne bei uns
+* Mistral OCR
+* Memory - In einer der nächsten Versionen - z.B. wenn man ein bestimmtes Verhalten haben möchte (Jira Markup als codeblock z.b.)
+* User Verwaltung (Gruppen und so) - später dieses Jahr
+--
+
+== Usage
+
+image::images/usage.png[Embedded,1280]
+
+[.notes]
+--
+* 2600 Nutzer
+* 200 aktive Nutzer
+* 23000 Konversationen
+* 80000 Nachrichten
+
+* ChatGPT - 23€/User/Monat -> 60.000€/Monat
+* nur die aktiven User ~4500€/Monat
+
+* unsere Kosten belaufen sich im Moment auf ca. 400€ im Monat
+* davon 170€ für LLMs
+* Custom integration müssten wir auch mit einer SaaS-Lösung bauen
+* Das machen wir mit ca. 1/3 Engineer
+
 --
 
 == Questions?
 
 image::images/questions.png[Embedded,720]
+
+[.notes]
+--
+Vielen Dank für die Aufmerksamkeit - gibt es noch Fragen?
+--
 
 [.columns]
 == Links
@@ -146,3 +143,4 @@ https://torvitas.github.io/tcd25-breuninger-ai/
 image::images/qr-breuninger-ai.svg[Embedded,360]
 https://gitlab.breuni.de/itops/oct/breuninger-ai/
 --
+
