@@ -16,7 +16,7 @@ Sascha Schmidt - E. Breuninger GmbH & Co.
 
 [.notes]
 --
-* Willkommen im Deep-Dive zur Breuninger AI
+* Schön dass ihr hier seid beim Deep-Dive zur Breuninger AI
 * Woher kommen wir, wo sind wir, wo wollen wir hin und wie machen wir das eigentlich?
 * Ich bin .. / Bei Operations Core Tooling
 * Bekannteste Services sind neben der Breuninger AI, die Breuninger ID, Gitlab, Confluence etc.
@@ -31,13 +31,13 @@ image::images/timeline.svg[Embedded,1280,opts=inline]
 
 [.notes]
 --
-* April 2024 - AI Hype, SaaS-Lösungen per Seat, PoC, GPT3.5
+* April 2024 - AI Hype, Wir brauchten dringend einen AI Chatbot, es sollte günstig sein, SaaS-Lösungen per Seat, PoC, GPT3.5
 * Juni 2024 - So können wir es nicht lassen, arbeit an Breuninger AI beginnt
-* Juli 2024 - Breuninger AI, Librechat, HR-Portal - Custom Integration, Was kann angebunden werden?
+* Juli 2024 - Breuninger AI, Librechat, Internal Guide - HR-Portal, Was kann angebunden werden?
 * August 2024 - Referenzen, GPT4o
-* Oktober 2024 - Confluence, Google
+* Oktober 2024 - Confluence - Public Pages - mit Label, Google
 * Dezember 2024 - Dall-E, Confluence Anhänge
-* April 2025 - Dashboard, o3-mini, OpenAI tts, Whisper (vorher nur Browser), MCP Model Context Protocol
+* April 2025 - Dashboard, o3-mini, OpenAI tts, Whisper (vorher nur Browser), MCP Model Context Protocol, HR Portal Anhänge
 * May 2025 - Evaluate OpenWebUi - Lizenz / Rocketchat
 --
 
@@ -50,7 +50,7 @@ image::images/components.png[Embedded,720]
 Blick hinter die Kulissen der Breuninger AI
 --
 
-=== Librechat
+== Librechat
 --
 image::images/librechat.svg[Embedded,1280,opts=inline]
 --
@@ -65,7 +65,7 @@ image::images/librechat.svg[Embedded,1280,opts=inline]
 * Ingest Pipeline - Go Binary, Gitlab Scheduled Pipeline, Change Detection
 --
 
-=== Azure
+== Azure
 --
 image::images/azure.svg[Embedded,1280,opts=inline]
 --
